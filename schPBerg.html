@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PestGuard Prenzlauer Berg – Schädlingsbekämpfung (helles, vertrauensvolles Design)</title>
+  <meta name="description" content="Schnelle, diskrete Schädlingsbekämpfung in Berlin Prenzlauer Berg. Transparente Preise, lokale Techniker, sichere Verfahren. Jetzt anrufen!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-0:#F9FBFF; /* sehr helles blau */
+      --bg-1:#F3FFF8; /* sehr helles mint */
+      --surface:#FFFFFF;
+      --text-0:#0F172A; /* sehr dunkel */
+      --text-1:#334155; /* mittel dunkel */
+      --primary:#0E7C86; /* kühles petrol */
+      --primary-600:#0B6B73;
+      --primary-100:#E6F6F7;
+      --accent:#FFD166; /* warmes sandgelb */
+      --accent-100:#FFF4D1;
+      --ok:#18A999; /* mint */
+      --ok-100:#D9FAF6;
+      --muted:#E7EEF6;
+      --shadow: 0 10px 30px rgba(16,24,40,.08);
+      --radius-xl:22px;
+      --radius-lg:16px;
+      --radius-md:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      color:var(--text-0);
+      background: radial-gradient(1200px 600px at 20% -10%, var(--bg-0), transparent 70%),
+                  radial-gradient(1200px 600px at 80% 0%, var(--bg-1), transparent 70%),
+                  var(--surface);
+      line-height:1.55;
+    }
+    a{color:var(--primary);text-decoration:none}
+    a:hover{color:var(--primary-600)}
+
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* Topbar */
+    .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--muted)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-family:Manrope,Inter,sans-serif;letter-spacing:.2px}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),#12A4A0);display:grid;place-items:center;color:#fff;font-weight:800;box-shadow:var(--shadow)}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--accent-100);border:1px dashed #F2CF87;color:#8C6A00;padding:6px 10px;border-radius:999px;font-size:12px;white-space:nowrap}
+    .cta{display:flex;align-items:center;gap:10px}
+    .btn-call{display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:#fff;padding:10px 14px;border-radius:999px;font-weight:700;box-shadow:var(--shadow)}
+    .btn-call small{opacity:.9;font-weight:600}
+
+    /* Hero */
+    header.hero{padding:48px 0 24px}
+    .hero-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+    .hero h1{font-family:Manrope,Inter,sans-serif;font-size:42px;line-height:1.1;margin:0 0 14px}
+    .hero p.lead{font-size:18px;color:var(--text-1);margin:0 0 18px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 22px}
+    .badge{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--muted);border-radius:999px;padding:8px 12px;box-shadow:var(--shadow);font-size:13px}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 16px;border-radius:14px;font-weight:700;border:1px solid transparent;box-shadow:var(--shadow)}
+    .btn.primary{background:var(--primary);color:#fff}
+    .btn.secondary{background:var(--accent-100);border-color:#F2CF87;color:#6B5800}
+    .hero-note{font-size:13px;color:#475569;margin-top:6px}
+
+    /* Image placeholder */
+    .hero-visual{position:relative}
+    .image-placeholder{
+      width:100%;aspect-ratio:16/10;border:2px dashed var(--muted);border-radius:var(--radius-xl);
+      display:grid;place-items:center;background:linear-gradient(180deg,#ffffff, var(--bg-0));color:#64748b;box-shadow:var(--shadow)
+    }
+    .image-placeholder span{font-size:14px}
+
+    /* Trust section */
+    section{padding:54px 0}
+    .section-title{font-family:Manrope,Inter,sans-serif;font-size:28px;margin:0 0 18px}
+    .kiez-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--surface);border:1px solid var(--muted);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--text-1);font-size:14px}
+
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .service{background:var(--surface);border:1px solid var(--muted);border-radius:16px;padding:16px;box-shadow:var(--shadow);display:flex;gap:12px}
+    .service svg{width:36px;height:36px}
+    .service h4{margin:4px 0 6px}
+    .service p{margin:0;color:#475569;font-size:14px}
+
+    /* Steps */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{background:linear-gradient(180deg, #fff, var(--bg-0));border:1px solid var(--muted);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .step .num{width:36px;height:36px;border-radius:10px;background:var(--ok);color:#003C3A;display:grid;place-items:center;font-weight:800}
+    .step h4{margin:12px 0 6px}
+    .step p{margin:0;color:var(--text-1)}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .price-card{background:var(--surface);border:1px solid var(--muted);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+    .price-table{width:100%;border-collapse:collapse}
+    .price-table th,.price-table td{padding:12px;border-bottom:1px dashed var(--muted);text-align:left}
+    .price-note{font-size:13px;color:#475569;margin-top:8px}
+
+    /* Reviews */
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{background:var(--surface);border:1px solid var(--muted);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .stars{letter-spacing:2px}
+
+    /* FAQ */
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    details{background:var(--surface);border:1px solid var(--muted);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow)}
+    details summary{cursor:pointer;font-weight:700}
+    details p{color:var(--text-1)}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr .9fr;gap:18px}
+    .contact .box{background:var(--surface);border:1px solid var(--muted);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{font-weight:600;font-size:14px}
+    input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--muted);border-radius:12px;background:#fff}
+    textarea{min-height:120px}
+    .btn-submit{background:var(--primary);color:#fff;border:none;border-radius:14px;padding:14px 16px;font-weight:800;width:100%;box-shadow:var(--shadow)}
+
+    /* Footer */
+    footer{padding:36px 0 60px;background:linear-gradient(180deg, var(--bg-0), #fff)}
+    .footcols{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px}
+    .footcols h5{margin:0 0 10px}
+    .copyright{margin-top:24px;color:#64748b;font-size:13px}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-wrap{grid-template-columns:1fr}
+      .kiez-cards,.services-grid,.steps,.reviews,.faq,.contact,.footcols,.pricing{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">PG</div>
+        <div>
+          <div style="font-size:15px">PestGuard Prenzlauer Berg</div>
+          <div style="font-size:12px;color:#475569">Schädlingsbekämpfung • diskret & sicher</div>
+        </div>
+      </div>
+      <div class="cta">
+        <span class="pill" aria-label="Notdienst Hinweis">🕒 24/7 Notdienst verfügbar</span>
+        <a class="btn-call" href="tel:03012345678" aria-label="Jetzt anrufen unter 030 12345678">
+          📞 <strong>030 12345678</strong> <small>Jetzt anrufen</small>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <h1>Schädlingsbekämpfung in Prenzlauer Berg – <span style="background:var(--accent-100);box-shadow:var(--shadow);padding:0 6px;border-radius:10px">schnell, diskret, transparent</span>.</h1>
+        <p class="lead">Lokale Techniker, moderne Verfahren (mechanisch, biologisch, chemisch – je nach Situation), klare Festpreise vor Beginn. Auf Wunsch oft <strong>noch am selben Tag</strong> vor Ort.</p>
+        <div class="badges" aria-label="Vertrauensmerkmale">
+          <div class="badge">✅ Diskrete Fahrzeuge ohne Werbung</div>
+          <div class="badge">🧾 Festpreis vor Ort – keine Überraschungen</div>
+          <div class="badge">🛡️ Haftpflichtversichert</div>
+          <div class="badge">🔒 Datenschutz konform</div>
+        </div>
+        <div class="hero-cta">
+          <a class="btn primary" href="tel:03012345678">📞 Jetzt anrufen</a>
+          <a class="btn secondary" href="#kontakt">✉️ Rückruf anfordern</a>
+        </div>
+        <div class="hero-note">⏱️ Einsatzgebiet: Prenzlauer Berg (Kollwitzkiez, Helmholtzplatz, Bötzowkiez, Winskiez) & Umgebung.</div>
+      </div>
+      <div class="hero-visual">
+        <!-- Bildplatzhalter: Ersetze den folgenden DIV später durch ein <img src="/pfad/zum/bild.jpg" alt="...">  -->
+        <div class="image-placeholder" role="img" aria-label="Bildplatzhalter für Header">
+          <span>Header-Bild einfügen (empfohlen 1600×1000).<br>Dies ist nur ein Platzhalter.</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Warum wir vor Ort vertraut werden -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Warum Prenzlauer Berg uns vertraut</h2>
+      <div class="kiez-cards" role="list">
+        <article class="card" role="listitem">
+          <h3>Lokale Erreichbarkeit</h3>
+          <p>Kurze Anfahrtswege aus dem Kiez – dadurch <strong>schnelle Termine</strong> und geringe Anfahrtskosten.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Transparente Entscheidungen</h3>
+          <p>Wir erklären verständlich <em>vor</em> der Behandlung alle Optionen (Nutzen, Risiken, Kosten). Sie entscheiden in Ruhe.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Nachhaltige Verfahren</h3>
+          <p>Wo immer möglich nutzen wir <strong>präventive & mechanische</strong> Methoden – Chemie nur zielgerichtet und sicher.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leistungen -->
+  <section aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" class="section-title">Unsere Leistungen</h2>
+      <div class="services-grid" role="list">
+        <div class="service" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v20M2 12h20" opacity=".2"/><path d="M7 9l2 2-2 2m10-4l-2 2 2 2M12 6l2 2-2 2-2-2 2-2z"/></svg>
+          <div><h4>Bettwanzen</h4><p>Inspektion, kombinierte Verfahren, Nachkontrolle. Schonend & wirksam.</p></div>
+        </div>
+        <div class="service" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2c4 4 6 8 6 12a6 6 0 11-12 0c0-4 2-8 6-12z"/><path d="M9 14l-4 4m10-6l4 4"/></svg>
+          <div><h4>Wespen & Hornissen</h4><p>Sichere Beseitigung und Umsiedlung – ohne Risiko für Bewohner.</p></div>
+        </div>
+        <div class="service" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M4 4l4 4M16 16l4 4M4 20l4-4M16 8l4-4"/></svg>
+          <div><h4>Kakerlaken</h4><p>Monitoring, Gelköder, Barrieren – langfristig und sicher.</p></div>
+        </div>
+        <div class="service" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M8 8v8m8-8v8"/></svg>
+          <div><h4>Mäuse & Ratten</h4><p>Ursachenforschung, dichte Abschlüsse, sichere Bekämpfung.</p></div>
+        </div>
+        <div class="service" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z"/></svg>
+          <div><h4>Ameisen</h4><p>Nester lokalisieren, Einträge stoppen, nachhaltige Behandlung.</p></div>
+        </div>
+        <div class="service" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 12h8"/></svg>
+          <div><h4>Flöhe & weitere</h4><p>Haushalts- & Gewerbefälle – wir beraten und lösen gezielt.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section aria-labelledby="steps-title">
+    <div class="container">
+      <h2 id="steps-title" class="section-title">So arbeiten wir – klar & effektiv</h2>
+      <div class="steps" role="list">
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">1</div>
+          <h4>Kurzes Telefonat</h4>
+          <p>Sie rufen an, nennen Symptome & Adresse. Wir schätzen Aufwand und nennen einen Preisrahmen.</p>
+        </div>
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">2</div>
+          <h4>Diagnose vor Ort</h4>
+          <p>Inspektion & Messung. <strong>Vor Beginn</strong> erhalten Sie den Festpreis und die Methode – schriftlich auf Wunsch.</p>
+        </div>
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">3</div>
+          <h4>Behandlung & Nachsorge</h4>
+          <p>Gezielte Bekämpfung, Hinweise zur Prävention, optionaler Kontrolltermin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preise -->
+  <section aria-labelledby="pricing-title">
+    <div class="container">
+      <h2 id="pricing-title" class="section-title">Transparente Preise</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <table class="price-table" aria-label="Preisübersicht (Richtwerte)">
+            <thead><tr><th>Leistung</th><th>ab Preis</th></tr></thead>
+            <tbody>
+              <tr><td>Erstinspektion (bei Auftrag verrechnet)</td><td>0 €</td></tr>
+              <tr><td>Bettwanzen (1 Zimmer, Kombiverfahren)</td><td>189 €</td></tr>
+              <tr><td>Wespennest entfernen/umsiedeln</td><td>129 €</td></tr>
+              <tr><td>Kakerlaken (Wohnung klein)</td><td>149 €</td></tr>
+              <tr><td>Mäusebefall (inkl. Abdichtungspaket)</td><td>169 €</td></tr>
+            </tbody>
+          </table>
+          <p class="price-note">*Richtwerte. Der endgültige Festpreis wird <strong>vor Beginn</strong> der Maßnahmen genannt – transparent & verbindlich.</p>
+        </div>
+        <div class="price-card">
+          <h3 style="margin-top:0">Soforthilfe im Kiez</h3>
+          <p>In vielen Fällen sind wir <strong>noch heute</strong> da. Diskret (ohne Werbung am Fahrzeug) und mit passenden Mitteln für Ihren Fall.</p>
+          <ul>
+            <li>✔️ Keine Zusatzkosten ohne Freigabe</li>
+            <li>✔️ Zahlungsmöglichkeiten: Bar, EC</li>
+            <li>✔️ Haftpflichtversichert</li>
+          </ul>
+          <p><a class="btn primary" href="tel:03012345678">📞 Termin anfragen: 030 12345678</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stimmen aus dem Kiez (Platzhalter) -->
+  <section aria-labelledby="reviews-title">
+    <div class="container">
+      <h2 id="reviews-title" class="section-title">Stimmen aus dem Kiez (Platzhalter)</h2>
+      <div class="reviews" role="list">
+        <figure class="review" role="listitem">
+          <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <figcaption><strong>Anna • Kollwitzkiez</strong></figcaption>
+          <p>„Sehr freundlich, alles erklärt und schnell gelöst. Klare Preise – top!“</p>
+        </figure>
+        <figure class="review" role="listitem">
+          <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <figcaption><strong>Mark • Winskiez</strong></figcaption>
+          <p>„Diskret und professionell. Man merkt die Erfahrung – absolut empfehlenswert.“</p>
+        </figure>
+        <figure class="review" role="listitem">
+          <div class="stars" aria-label="4 von 5 Sternen">★★★★☆</div>
+          <figcaption><strong>Lea • Helmholtzplatz</strong></figcaption>
+          <p>„Schnell vor Ort, transparente Kosten. Danke für die Tipps zur Vorbeugung!“</p>
+        </figure>
+      </div>
+      <p class="hero-note">Hinweis: Obige Bewertungen sind Platzhalter für reale Kundenstimmen.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title" class="section-title">Häufige Fragen</h2>
+      <div class="faq">
+        <details>
+          <summary>Wie schnell können Sie kommen?</summary>
+          <p>Oft noch am selben Tag, spätestens am nächsten Werktag im Prenzlauer Berg. Anruf genügt.</p>
+        </details>
+        <details>
+          <summary>Arbeiten Sie diskret?</summary>
+          <p>Ja. Unsere Fahrzeuge tragen <strong>keine Werbung</strong>. Auf Wunsch besuchen wir Sie zu Wunschzeiten.</p>
+        </details>
+        <details>
+          <summary>Welche Methoden setzen Sie ein?</summary>
+          <p>Immer die <em>passendste</em> Kombination: Prävention & Abdichtung, Monitoring, mechanische und – nur wenn nötig – chemische Verfahren.</p>
+        </details>
+        <details>
+          <summary>Was kostet es?</summary>
+          <p>Sie erhalten <strong>vor Beginn</strong> einen verbindlichen Festpreis. Richtwerte finden Sie oben.</p>
+        </details>
+        <details>
+          <summary>Gibt es eine Kontrolle?</summary>
+          <p>Ja, je nach Befall empfehlen wir eine Nachkontrolle. Wir beraten Sie individuell.</p>
+        </details>
+        <details>
+          <summary>Welche Bereiche decken Sie ab?</summary>
+          <p>Schwerpunkt Prenzlauer Berg & angrenzende Bezirke (Pankow, Mitte, Friedrichshain). Andere Orte auf Anfrage.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" aria-labelledby="contact-title">
+    <div class="container contact">
+      <div class="box">
+        <h2 id="contact-title" class="section-title" style="margin-top:0">Kontakt & Rückruf</h2>
+        <form action="#" method="post" aria-label="Kontaktformular">
+          <div class="grid-2">
+            <div>
+              <label for="name">Ihr Name</label>
+              <input id="name" name="name" type="text" placeholder="Vor- und Nachname" required>
+            </div>
+            <div>
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" placeholder="z. B. 030 12345678" required>
+            </div>
+          </div>
+          <div class="grid-2" style="margin-top:12px">
+            <div>
+              <label for="address">Adresse in Prenzlauer Berg</label>
+              <input id="address" name="address" type="text" placeholder="Straße, Hausnr., Etage">
+            </div>
+            <div>
+              <label for="issue">Problem</label>
+              <select id="issue" name="issue">
+                <option value="Bettwanzen">Bettwanzen</option>
+                <option value="Wespen">Wespen/Hornissen</option>
+                <option value="Kakerlaken">Kakerlaken</option>
+                <option value="Mäuse">Mäuse/Ratten</option>
+                <option value="Ameisen">Ameisen</option>
+                <option value="Sonstiges">Sonstiges</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <label for="message">Kurzbeschreibung</label>
+            <textarea id="message" name="message" placeholder="Was ist passiert? Seit wann? Hinweise? (freiwillig)"></textarea>
+          </div>
+          <div style="margin-top:16px">
+            <button class="btn-submit" type="submit">Rückruf anfordern</button>
+          </div>
+          <p class="hero-note">Mit dem Absenden stimmen Sie der Kontaktaufnahme zu. Es werden nur zur Bearbeitung notwendige Daten verwendet.</p>
+        </form>
+      </div>
+      <aside class="box">
+        <h3 style="margin-top:0">Direkt & unkompliziert</h3>
+        <p><strong>Telefon:</strong> <a href="tel:03012345678">030 12345678</a><br>
+           <strong>E‑Mail:</strong> <a href="mailto:kontakt@pestguard-berlin.de">kontakt@pestguard-berlin.de</a></p>
+        <p><strong>Servicezeiten:</strong> Mo–So 7–22 Uhr (Notdienst 24/7)</p>
+        <p><strong>Adresse (Büro):</strong><br>Beispielstraße 12, 10405 Berlin</p>
+        <div class="card" style="margin-top:8px">
+          <h4 style="margin:0 0 6px">Diskretion an erster Stelle</h4>
+          <p style="margin:0">Keine Werbung am Fahrzeug, neutrale Kleidung, sensible Daten geschützt.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footcols">
+        <div>
+          <div class="brand" style="margin-bottom:10px">
+            <div class="logo" aria-hidden="true">PG</div>
+            <div>
+              <div style="font-size:15px">PestGuard Prenzlauer Berg</div>
+              <div style="font-size:12px;color:#475569">Schädlingsbekämpfung</div>
+            </div>
+          </div>
+          <p>Wir helfen Haushalten & Gewerbe im Prenzlauer Berg – professionell, freundlich, transparent.</p>
+        </div>
+        <div>
+          <h5>Rechtliches</h5>
+          <p><a href="#">Impressum (Platzhalter)</a><br>
+             <a href="#">Datenschutz (Platzhalter)</a></p>
+        </div>
+        <div>
+          <h5>Kurzinfos</h5>
+          <p>📞 <a href="tel:03012345678">030 12345678</a><br>
+             ✉️ <a href="mailto:kontakt@pestguard-berlin.de">kontakt@pestguard-berlin.de</a></p>
+        </div>
+      </div>
+      <div class="copyright">© <span id="year"></span> PestGuard Prenzlauer Berg • Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Schema.org JSON-LD (anpassen) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PestControl",
+    "name": "PestGuard Prenzlauer Berg",
+    "areaServed": "Berlin Prenzlauer Berg",
+    "telephone": "+49-30-12345678",
+    "url": "https://www.beispiel.de/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Beispielstraße 12",
+      "postalCode": "10405",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "openingHours": "Mo-So 07:00-22:00",
+    "priceRange": "€€",
+    "sameAs": []
+  }
+  </script>
+</body>
+</html>
